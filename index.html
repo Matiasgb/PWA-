@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GARCIA BRUNELLI MATIAS - Cátedra PWA</title>
+        <meta charset="UTF-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+   <div class="container">
+       <div class="app">
+       
+            <h3>See The Weather</h3>
+            
+            <form id="contact-form"></form>
+              
+                <input title="Search" id="search" value="" type="text" required/>
+                <button id="sendButton" type="button">Enviar</button>
+            </form>
+        
+            <main>
+                <section class="location">
+                    <div class="city">Example</div>
+                    <div class="date">Lunes 27 de Marzo</div>
+                    
+                </section>
+                <div class="current">
+                    <div class="st">15</div>
+                    <div class="weather">Sunny</div>
+                    <div class="temp">13°C / 16°</div>
+                    <div class="wind">corre el viento</div>
+                    <div class="presion"></div>
+                    <div class="humedad"></div>
+                  
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="player"></div>
+
+        <div id="main"></div>
+        <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+      
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+              player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'yuFI5KSPAt4',
+                events: {
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
+                }
+              });
+            }
+   
+            // 4. The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+              event.target.playVideo();
+            }
+      
+            // 5. The API calls this function when the player's state changes.
+            //    The function indicates that when playing a video (state=1),
+            //    the player should play for six seconds and then stop.
+            var done = false;
+            function onPlayerStateChange(event) {
+              if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+              }
+            }
+            function stopVideo() {
+              player.stopVideo();
+            }
+          </script>
+      
+        <script src="js/main.js"></script>  
+    </body>
+</html>
