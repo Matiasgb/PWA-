@@ -1,6 +1,6 @@
 const API = {
     KEY: 'cf21b610b640a7d5f53837be8f3f87b8',
-    URL: 'http://api.openweathermap.org/data/2.5/',
+    URL: 'https://api.openweathermap.org/data/2.5/',
 };
 
 /*const GOOGLE = {
