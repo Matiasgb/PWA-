@@ -8,7 +8,36 @@ const API = {
     URL: 'https://www.google.com/maps/embed/v1'
 };*/
 
-const CLIMAS = ['Thunderstorm', 'Drizzle', 'Rain', 'Snow', 'Atmosphere', 'Clear', 'Clouds'];
+const CLIMAS = [
+    {
+        "name" : 'Thunderstorm',
+        "videoID" : 'v2AC41dglnM'
+    },
+    {
+        "name" : 'Drizzle',
+        "videoID" : 'v2AC41dglnM'
+    },
+    {
+        "name" : 'Rain',
+        "videoID" : 'D1ZYhVpdXbQ'
+    },
+    {
+        "name" : 'Snow',
+        "videoID" : 'yuFI5KSPAt4'
+    },
+    {
+        "name" : 'Atmosphere',
+        "videoID" : 'v2AC41dglnM'
+    },
+    {
+        "name" : 'Clear',
+        "videoID" : 'G8dsvclf3Tk'
+    },
+    {
+        "name" : 'Clouds',
+        "videoID" : 'fibYknUCIU4'
+    }
+    ];
 
 
 
@@ -101,11 +130,11 @@ function resultados(query) {
 
         for (let i = 0; i < CLIMAS.length; i++) {
             let body = document.querySelector('.container');
-            if(`${data.weather[0].main}` == CLIMAS[i]) {
-               body.style.backgroundImage = 'url(' + CLIMAS[i] +  '.jpg)';
+            if(`${data.weather[0].main}` == CLIMAS[i].name) {
+               body.style.backgroundImage = 'url(' + CLIMAS[i].name +  '.jpg)';
 
 
-           
+               player.loadVideoById(`${CLIMAS[i].videoID}`, 5, "large")
 
             }
         }

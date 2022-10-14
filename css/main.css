@@ -84,7 +84,9 @@ main {
     color: #FFF;
     font-size: 16px;
 }
-
+.current {
+    margin-bottom: 50px;
+}
 .current .st {
     color: #FFF;
     font-size: 102px;
